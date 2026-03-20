@@ -26,11 +26,7 @@ public class GameHistoryController : ControllerBase
             PlayerName = "Alice"
         };
 
-        gameHistory.Player1Id = player1.PlayerId;
-        gameHistory.PlayerOne = player1;
-
-        gameHistory.Player2Id = player2.PlayerId;
-        gameHistory.PlayerTwo = player2;
+       gameHistory.GamePlayers = [player1, player2];
 
         gameHistory.WinnerPlayerId = player1.PlayerId;
         return gameHistory;

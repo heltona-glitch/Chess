@@ -7,11 +7,7 @@ public class GameHistory
     public DateTime EndTime { get; set; }
 
     //Relational Data
-    public int Player1Id { get; set; }
-    public Player PlayerOne { get; set; }   
-
-    public int Player2Id { get; set; }
-    public Player PlayerTwo { get; set; }
+   public List<Player> GamePlayers { get; set; } //Navigation property for the many-to-many relationship
 
     public int? WinnerPlayerId { get; set; } //Null == Draw
 
