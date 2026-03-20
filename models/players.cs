@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.RateLimiting;
+using System.Text.Json.Serialization;
 
 public class Player
 {
@@ -6,5 +7,6 @@ public class Player
     public string PlayerName { get; set; }
 
 //Relational Data
+[JsonIgnore]
 public List<GameHistory> GameHistories { get; set; }
 }
