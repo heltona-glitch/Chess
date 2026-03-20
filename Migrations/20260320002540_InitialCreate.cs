@@ -15,11 +15,11 @@ namespace Chess.Migrations
                 name: "GameHistories",
                 columns: table => new
                 {
-                    GameHistoryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    WinnerPlayerId = table.Column<int>(type: "int", nullable: true)
+                    GameHistoryId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    StartTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    WinnerPlayerId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,9 +30,9 @@ namespace Chess.Migrations
                 name: "Players",
                 columns: table => new
                 {
-                    PlayerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PlayerName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PlayerId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PlayerName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,8 +43,8 @@ namespace Chess.Migrations
                 name: "GameHistoryPlayer",
                 columns: table => new
                 {
-                    GameHistoriesGameHistoryId = table.Column<int>(type: "int", nullable: false),
-                    GamePlayersPlayerId = table.Column<int>(type: "int", nullable: false)
+                    GameHistoriesGameHistoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    GamePlayersPlayerId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
