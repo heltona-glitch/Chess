@@ -1,3 +1,7 @@
+using System.Text.Json.Serialization;
+/// <summary>
+/// Represents a completed or still rinning game
+/// </summary>
 public class GameHistory
 {
     public int GameHistoryId { get; set; } //Primary Key
@@ -7,8 +11,14 @@ public class GameHistory
     public DateTime EndTime { get; set; }
 
     //Relational Data
-   public List<Player> GamePlayers { get; set; } //Navigation property for the many-to-many relationship
+    /// <summary>
+    /// Players that are involved
+    /// </summary>
+   public List<Player> GamePlayers { get; set; } = new(); //Navigation property for the many-to-many relationship
 
+   /// <summary>
+   /// Winner of the game, a null means theres a darn draw
+   /// </summary>
     public int? WinnerPlayerId { get; set; } //Null == Draw
 
 }

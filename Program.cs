@@ -13,6 +13,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ChessDbContext>(
     options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
+    builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+builder.Services.AddScoped<IGameHistoryRepository, GameHistoryRepository>();
+builder.Services.AddScoped<IPlayerService, PlayerService>();
 
 var app = builder.Build();
 
