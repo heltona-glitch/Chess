@@ -4,12 +4,10 @@ using System;
 [ApiController]
 public class PlayerController : ControllerBase
 {
-private readonly IPlayerRepository _playerRepository;
 private readonly IPlayerService _playerService;
 
-public PlayerController(IPlayerRepository playerRepository, IPlayerService playerService)
+public PlayerController(IPlayerService playerService)
 {
-    _playerRepository = playerRepository;
     _playerService = playerService;
 }
 //This is to create a player, I'm implementing CRUD
@@ -94,10 +92,6 @@ public IActionResult CreatePlayer(PlayerCreateRequest request)
     [HttpGet("/players/leaderboard")]
     public IActionResult GetLeaderboard()
     {
-        var players = _playerRepository.GetAll()
-            .OrderByDescending(p => p.Wins)
-            .ToList();
-
-        return Ok(players);
+        return Ok(_playerService.GetLeaderboard());
     }
 }

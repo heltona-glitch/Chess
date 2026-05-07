@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ChessDbContext>(
     builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 builder.Services.AddScoped<IGameHistoryRepository, GameHistoryRepository>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
+builder.Services.AddScoped<IGameHistoryService, GameHistoryService>();
 
 var app = builder.Build();
 
