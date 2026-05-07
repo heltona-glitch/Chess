@@ -39,7 +39,7 @@ public class GameHistoryService : IGameHistoryService
             GamePlayers = new List<Player> { player1, player2 }
         };
 
-        // Win/Loss logic (MOVED OUT OF CONTROLLER ✔)
+        // Win/Loss logic (MOVED OUT OF THE CONTROLLER AND INTO THE SERVICE)
         if (request.WinnerPlayerId.HasValue)
         {
             var winner = _playerRepository.GetById(request.WinnerPlayerId.Value);
