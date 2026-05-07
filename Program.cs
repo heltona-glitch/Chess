@@ -17,7 +17,8 @@ builder.Services.AddScoped<IGameHistoryRepository, GameHistoryRepository>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
 builder.Services.AddScoped<IGameHistoryService, GameHistoryService>();
 
-var app = builder.Build(); 
+var app = builder.Build();
+app.UseDeveloperExceptionPage();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
