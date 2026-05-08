@@ -16,7 +16,8 @@ public class GameHistory
     /// Players that are involved
     /// </summary>
    [NotMapped]
-public List<Player>? GamePlayers { get; set; }//Navigation property for the many-to-many relationship
+public List<Player>? GamePlayers { get; set; }
+// This would normally represent a many-to-many relationship, but it's not mapped to the database for simplicity in this project.
 
    /// <summary>
    /// Winner of the game, a null means theres a darn draw
