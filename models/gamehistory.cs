@@ -14,7 +14,7 @@ public class GameHistory
     /// <summary>
     /// Players that are involved
     /// </summary>
-   public List<Player> GamePlayers { get; set; } = new(); //Navigation property for the many-to-many relationship
+   public List<Player> GamePlayers { get; set; } //Navigation property for the many-to-many relationship
 
    /// <summary>
    /// Winner of the game, a null means theres a darn draw

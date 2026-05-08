@@ -18,6 +18,12 @@ builder.Services.AddScoped<IPlayerService, PlayerService>();
 builder.Services.AddScoped<IGameHistoryService, GameHistoryService>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ChessDbContext>();
+    db.Database.EnsureCreated();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
