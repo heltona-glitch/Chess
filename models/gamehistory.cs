@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations.Schema;
 /// <summary>
 /// Represents a completed or still rinning game
 /// </summary>
@@ -14,7 +15,8 @@ public class GameHistory
     /// <summary>
     /// Players that are involved
     /// </summary>
-   public List<Player> GamePlayers { get; set; } //Navigation property for the many-to-many relationship
+   [NotMapped]
+public List<Player>? GamePlayers { get; set; }//Navigation property for the many-to-many relationship
 
    /// <summary>
    /// Winner of the game, a null means theres a darn draw
